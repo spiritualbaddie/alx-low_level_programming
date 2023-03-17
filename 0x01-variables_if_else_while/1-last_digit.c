@@ -1,47 +1,35 @@
 #include <stdio.h>
-#include <ctype.h>
+#include <stdlib.h>
+#include <time.h>
 /**
- * main - Entrypoint
+ * main - Prints the last digit of random number
  *
- * Return: Always 0 (success)
+ * Return: Return 0
  *
  * FUNCTIONALITY *
  *
- * 1. The for loop is used to iterate through the alphabet.
+ * 1. It’s generating a random number using the rand() function.
  *
- * 2. The tolower() function is used to convert the letter to lowercase.
+ * 2. It’s storing the last digit of the random number in the variable last.
  *
- * 3. The putchar() function is used to print the letter.
+ * 3. It’s printing the last digit of the random number.
  *
- * 4. The putchar() function is used to print a new line.
- *
- * Time Complexity: O(n)
+ * Time Complexity: O(1)
  */
-
 int main(void)
 {
 	int n;
+	int last;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
+	last = n % 10;
 
-	if ((n % 10) > 5)
-	{
-		printf("Last digit of %d is %d and is greater than 5\n",
-			n, n % 10);
-	}
-	else if ((n % 10) < 6 && (n % 10) != 0)
-	{
-		printf("Last digit of %d is %d and is less than 6 and not 0\n",
-			n, n % 10);
-	}
+	if (last == 0)
+		printf("Last digit of %d is %d and is 0\n", n, last);
+	else if (last > 5)
+		printf("Last digit of %d is %d and is greater than 5\n", n, last);
 	else
-	{
-		printf("Last digit of %d is %d and is 0\n",
-			n, n % 10);
-	}
-
+		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, last);
 	return (0);
-
-	}
-
+}

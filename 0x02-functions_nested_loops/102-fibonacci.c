@@ -1,35 +1,43 @@
+#include "main.h"
 #include <stdio.h>
+/**
+ * main - Prints first 50 numbers of the fibonacci sequence
+ *
+ * Return: 0
+ *
+ * FUNCTIONALITY *
+ *
+ * 1. Declare variables
+ * 2. Initialize variables
+ * 3. Loop through the fibonacci sequence
+ * 4. Print the fibonacci sequence
+ *
+ * Time Complexity: O(n)
+ */
 
+int main(void)
+{
+	int i, l;
+	long n1, n2, next;
 
-	/**
-	 * main - Prints first 50 Fibonacci numbers, starting with 1 and 2,
-	 *        separated by a comma followed by a space.
-	 *
-	 * Return: Always 0.
-	 */
-	int main(void)
+	n1 = 1;
+	n2 = 2;
+	l = 50;
+
+	for (i = 0; i < l; i++)
 	{
-		int count;
-		unsigned long fib1 = 0, fib2 = 1, sum;
-
-
-		for (count = 0; count < 50; count++)
+		if (i == 49)
 		{
-			sum = fib1 + fib2;
-			printf("%lu", sum);
-
-
-			fib1 = fib2;
-			fib2 = sum;
-
-
-			if (count == 49)
-				printf("\n");
-			else
-				printf(", ");
+			printf("%lu", n1);
 		}
-
-
-		return (0);
+		else
+		{
+			printf("%lu, ", n1);
+			next = n1 + n2;
+			n1 = n2;
+			n2 = next;
+		}
 	}
-
+	printf("\n");
+	return (0);
+}

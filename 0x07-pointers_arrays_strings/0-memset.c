@@ -1,19 +1,23 @@
 #include "main.h"
 
 /**
- * _memset - the memset() function fills
+ * _memset - fill a lock of memory with a specific value
  * the first n bytes of the memory area
  * pointed to by s with the constant byte b
  * @s: target
- * @b: constant yte
+ * @b: constant byte
  * @n: number of bytereturn: return new value of target
+ *
+ * return: changed array with new values for n bytes
  */
 
-char (char *s, char b, unsigned int n)
+char *_memset(char *s, char b, unsigned int n)
 {
-	while (n)
+	int i = 0;
+
+	for (; n > 0; i++)
 	{
-		s[n - 1] = b;
+		s[i] = b;
 		n--;
 	}
 	return (s);
